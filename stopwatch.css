@@ -1,0 +1,32 @@
+.main-div{
+    margin-left: 450px;
+}
+body{
+    background-color: black;
+}
+.heading{
+    color: white;
+}
+.stop-watch-container{
+    color: white;
+    margin-left:40px;
+    margin-top: 50px;
+    
+    
+    
+}
+.timer{
+    width:60px;
+    border: 3px solid white; 
+    padding: 55px 40px 55px 40px;
+    padding-right:30px ;
+    border-radius:50%;
+}
+button:hover{
+    background-color: gray;
+    font-family: 'Times New Roman', Times, serif;
+}
+button{
+    margin-left: 45px;
+}
+

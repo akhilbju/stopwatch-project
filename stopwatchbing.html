@@ -1,0 +1,86 @@
+<html>
+<head>
+  <style>
+    #timer {
+      font-size: 40px;
+    }
+    #start, #stop, #reset {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer">00:00:00</div>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+  <script>
+    // declare variables
+    var timer = document.getElementById("timer");
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+    var reset = document.getElementById("reset");
+    var hours = 0;
+    var minutes = 0;
+    var seconds = 0;
+    var interval;
+
+    // pad function to add leading zeros
+    function pad(n) {
+      return n < 10 ? "0" + n : n;
+    }
+
+    // update function to display the timer
+    function update() {
+      timer.innerHTML = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+      seconds++;
+      if (seconds == 60) {
+        seconds = 0;
+        minutes++;
+      }
+      if (minutes == 60) {
+        minutes = 0;
+        hours++;
+      }
+    }
+
+    // start function to start the timer
+    function startTimer() {
+      interval = setInterval(update, 1000);
+      start.disabled = true;
+      stop.disabled = false;
+      reset.disabled = false;
+    }
+
+    // stop function to stop the timer
+    function stopTimer() {
+      clearInterval(interval);
+      start.disabled = false;
+      stop.disabled = true;
+      reset.disabled = false;
+    }
+
+    // reset function to reset the timer
+    function resetTimer() {
+      clearInterval(interval);
+      hours = 0;
+      minutes = 0;
+      seconds = 0;
+      timer.innerHTML = "00:00:00";
+      start.disabled = false;
+      stop.disabled = true;
+      reset.disabled = true;
+    }
+
+    // add event listeners to the buttons
+    start.addEventListener("click", startTimer);
+    stop.addEventListener("click", stopTimer);
+    reset.addEventListener("click", resetTimer);
+
+    // initialize the buttons
+    stop.disabled = true;
+    reset.disabled = true;
+
+  </script>
+</body>
+</html>
