@@ -9,6 +9,10 @@ let hours = 0;
 let play=false;
 
 function startstopfunction() {
+  
+  play=!play;
+
+  
 if(play){
 //function startfunction(){
     show=setInterval(showfunction,10);
@@ -21,7 +25,7 @@ else{
     clearInterval(show);
 //}
 }
-play=!play;
+
 }
 
 function resetfunction(){
@@ -41,7 +45,7 @@ function showfunction(){
     pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
       seconds++;
       if (seconds == 60) {
-        seconds = 0;aa
+        seconds = 0;
         minutes++;
       }
       if (minutes == 60) {
